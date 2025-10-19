@@ -10,48 +10,50 @@ Platform donasi berbasis smart contract Ethereum untuk membantu hewan yang membu
 - ✅ Tracking lengkap semua transaksi
 - ✅ Progress monitoring real-time
 
-## 🚀 Quick Start
+## � Struktur Project
 
-### Install Dependencies
-```bash
-npm install
+```
+pawfund-sc/
+├── contracts/
+│   ├── Campaign.sol          # Contract campaign donasi individual
+│   └── CampaignFactory.sol   # Factory untuk membuat campaigns
+└── docs/
+    ├── Campaign.md           # Dokumentasi Campaign.sol
+    ├── CampaignFactory.md    # Dokumentasi CampaignFactory.sol
+    └── BASIS_POINTS.md       # Penjelasan sistem basis points
 ```
 
+## 🚀 Quick Start
+
 ### Compile Contracts
+
+Anda bisa compile contracts menggunakan:
+
+**Remix IDE** (Recommended untuk pemula):
+1. Buka [Remix IDE](https://remix.ethereum.org)
+2. Copy-paste `Campaign.sol` dan `CampaignFactory.sol`
+3. Compile dengan compiler version `0.8.28`
+
+**Foundry**:
+```bash
+forge build
+```
+
+**Hardhat**:
 ```bash
 npx hardhat compile
 ```
 
-### Run Tests
+### Deploy Contracts
+
+**Via Remix IDE**:
+1. Deploy `CampaignFactory.sol` terlebih dahulu
+2. Copy address factory yang sudah di-deploy
+3. Gunakan factory untuk membuat campaigns
+
+**Via Foundry**:
 ```bash
-npx hardhat test
-```
-
-## 💻 Development
-
-### Deploy ke Local Network
-
-Terminal 1 - Jalankan node:
-```bash
-npx hardhat node
-```
-
-Terminal 2 - Deploy contracts:
-```bash
-npx hardhat run scripts/deploy-pawfund.ts --network localhost
-```
-
-### Deploy ke Sepolia Testnet
-
-Set environment variables:
-```bash
-npx hardhat vars set SEPOLIA_RPC_URL
-npx hardhat vars set SEPOLIA_PRIVATE_KEY
-```
-
-Deploy:
-```bash
-npx hardhat run scripts/deploy-pawfund.ts --network sepolia
+forge create CampaignFactory --rpc-url <RPC_URL> --private-key <PRIVATE_KEY>
 ```
 
 ## 📝 Cara Penggunaan
@@ -98,12 +100,24 @@ Contract untuk campaign donasi individual dengan fitur:
 - History donasi dan withdrawal
 - Progress tracking
 
+**Key Functions:**
+- `donate(string message)` - Terima donasi
+- `withdraw(uint256 amount, string purpose)` - Withdraw dana
+- `getCampaignInfo()` - Info lengkap campaign
+- `getProgress()` - Progress dalam basis points
+
 ### CampaignFactory.sol
 Factory contract untuk membuat dan mengelola campaigns:
 - Deploy campaign baru
 - Registry semua campaign
 - Filter dan query campaigns
 - Global statistics
+
+**Key Functions:**
+- `createCampaign(...)` - Buat campaign baru
+- `getAllCampaigns()` - Semua campaign addresses
+- `getCampaignsByBeneficiary(address)` - Filter by owner
+- `getActiveCampaigns()` - Campaign yang aktif
 
 ## 📚 Dokumentasi Lengkap
 
@@ -113,22 +127,19 @@ Untuk dokumentasi detail, lihat folder `/docs`:
 - [Basis Points Explained](./docs/BASIS_POINTS.md)
 - [Architecture Guide](./ARCHITECTURE.md)
 
-## 🧪 Testing
+## 🔧 Development Tools
 
-```bash
-# Run all tests
-npx hardhat test
-
-# With gas reporting
-REPORT_GAS=true npx hardhat test
-```
+Project ini compatible dengan:
+- ✅ **Remix IDE** - Untuk testing dan deployment cepat
+- ✅ **Foundry** - Untuk development dan testing advanced
+- ✅ **Hardhat** - Untuk integration testing
+- ✅ **Truffle** - Untuk migration dan deployment
 
 ## 🛠️ Tech Stack
 
 - **Solidity**: ^0.8.28
-- **Hardhat**: 3.0.7
-- **Viem**: 2.x
-- **TypeScript**: ~5.8.0
+- **License**: MIT
+- **Network**: Ethereum & EVM-compatible chains
 
 ## 📄 License
 

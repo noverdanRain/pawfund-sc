@@ -1,5 +1,38 @@
 # 🏭 CampaignFactory.sol - Dokumentasi Teknis
 
+## 📑 Table of Contents
+
+- [Overview](#overview)
+- [State Variables](#state-variables)
+  - [Public Arrays](#public-arrays)
+  - [Public Mappings](#public-mappings)
+- [Data Structures](#data-structures)
+  - [Struct: CampaignMetadata](#struct-campaignmetadata)
+- [Events](#events)
+  - [event CampaignCreated](#event-campaigncreated)
+- [Functions](#functions)
+  - [1. createCampaign()](#1-createcampaign)
+  - [2. getCampaignsCount()](#2-getcampaignscount-view)
+  - [3. getAllCampaigns()](#3-getallcampaigns-view)
+  - [4. getCampaignsByBeneficiary()](#4-getcampaignsbybeneficiary-view)
+  - [5. getCampaignDetails()](#5-getcampaigndetails-view)
+  - [6. getAllCampaignMetadata()](#6-getallcampaignmetadata-view)
+  - [7. getActiveCampaigns()](#7-getactivecampaigns-view)
+  - [8. getGlobalStatistics()](#8-getglobalstatistics-view)
+  - [9. verifyCampaign()](#9-verifycampaign-view)
+  - [10. getLatestCampaigns()](#10-getlatestcampaigns-view)
+- [Security Considerations](#security-considerations)
+- [Gas Optimization](#gas-optimization)
+- [Upgrade Considerations](#upgrade-considerations)
+- [Events for Off-Chain Indexing](#events-for-off-chain-indexing)
+- [Testing Checklist](#testing-checklist)
+- [Deployment](#deployment)
+- [Frontend Integration](#frontend-integration)
+- [Common Patterns](#common-patterns)
+- [Known Limitations](#known-limitations)
+
+---
+
 ## Overview
 
 `CampaignFactory.sol` adalah factory contract yang bertanggung jawab untuk membuat (deploy) dan mengelola campaign-campaign donasi. Factory pattern ini memungkinkan pembuatan multiple campaign dengan cara yang terstandarisasi dan mudah ditrack.

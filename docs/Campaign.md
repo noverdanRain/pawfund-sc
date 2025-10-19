@@ -1,5 +1,44 @@
 # 📄 Campaign.sol - Dokumentasi Teknis
 
+## 📑 Table of Contents
+
+- [Overview](#overview)
+- [State Variables](#state-variables)
+  - [Public Variables](#public-variables)
+- [Data Structures](#data-structures)
+  - [Struct: Donation](#struct-donation)
+  - [Struct: Withdrawal](#struct-withdrawal)
+- [Storage Arrays](#storage-arrays)
+- [Mappings](#mappings)
+- [Events](#events)
+  - [event DonationReceived](#event-donationreceived)
+  - [event WithdrawalMade](#event-withdrawalmade)
+  - [event CampaignStatusChanged](#event-campaignstatuschanged)
+- [Modifiers](#modifiers)
+  - [onlyBeneficiary](#modifier-onlybeneficiary)
+  - [onlyActive](#modifier-onlyactive)
+  - [onlyFactory](#modifier-onlyfactory)
+- [Constructor](#constructor)
+- [Functions](#functions)
+  - [1. donate()](#1-donate)
+  - [2. withdraw()](#2-withdraw)
+  - [3. setCampaignStatus()](#3-setcampaignstatus)
+  - [4. getBalance()](#4-getbalance-view)
+  - [5. getDonationsCount()](#5-getdonationscount-view)
+  - [6. getWithdrawalsCount()](#6-getwithdrawalscount-view)
+  - [7. getCampaignInfo()](#7-getcampaigninfo-view)
+  - [8. getDonation()](#8-getdonation-view)
+  - [9. getWithdrawal()](#9-getwithdrawal-view)
+  - [10. getProgress()](#10-getprogress-view)
+  - [11. receive()](#11-receive-payable-fallback)
+- [Security Considerations](#security-considerations)
+- [Gas Optimization Tips](#gas-optimization-tips)
+- [Testing Checklist](#testing-checklist)
+- [Deployment](#deployment)
+- [Frontend Integration Example](#frontend-integration-example)
+
+---
+
 ## Overview
 
 `Campaign.sol` adalah smart contract untuk campaign donasi individual. Setiap campaign yang dibuat melalui `CampaignFactory` akan memiliki instance contract ini sendiri. Contract ini mengelola donasi, withdrawal, dan tracking untuk satu campaign donasi hewan.

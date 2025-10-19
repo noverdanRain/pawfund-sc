@@ -8,10 +8,16 @@ Selamat datang di dokumentasi lengkap untuk smart contracts PawFund. Dokumentasi
 
 ### 1. Contract Documentation
 - **[Campaign.sol](./Campaign.md)** - Contract untuk campaign donasi individual
+  - Lengkap dengan Table of Contents untuk navigasi mudah
+  - Dokumentasi 11 functions + events + modifiers
 - **[CampaignFactory.sol](./CampaignFactory.md)** - Factory contract untuk membuat dan mengelola campaigns
+  - Lengkap dengan Table of Contents untuk navigasi mudah
+  - Dokumentasi 10 functions + integration patterns
 
 ### 2. Technical Concepts
 - **[Basis Points Explained](./BASIS_POINTS.md)** - Penjelasan sistem basis points untuk progress calculation
+  - Lengkap dengan Table of Contents
+  - Step-by-step explanation dengan contoh
 
 ### 3. Architecture
 - **[ARCHITECTURE.md](../ARCHITECTURE.md)** - Arsitektur sistem dan design patterns

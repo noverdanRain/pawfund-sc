@@ -1,5 +1,21 @@
 # 🔢 Basis Points Explained - Progress Calculation dalam Solidity
 
+## 📑 Table of Contents
+
+- [Masalah: Solidity Tidak Mendukung Floating Point](#masalah-solidity-tidak-mendukung-floating-point)
+- [Solusi: Basis Points](#solusi-basis-points-multiply-before-divide)
+- [Cara Kerja Basis Points](#cara-kerja-basis-points)
+- [Contoh-contoh Perhitungan](#contoh-contoh-perhitungan)
+- [Implementation di PawFund](#implementation-di-pawfund)
+- [Kenapa Tidak Pakai Basis Lain?](#kenapa-tidak-pakai-basis-lain)
+- [Perbandingan Sistem Basis](#perbandingan-sistem-basis)
+- [Edge Cases](#edge-cases)
+- [Alternative Approaches](#alternative-approaches)
+- [Best Practices](#best-practices)
+- [Summary](#summary)
+
+---
+
 ## Masalah: Solidity Tidak Mendukung Floating Point
 
 Solidity **tidak mendukung** tipe data desimal (float/double). Semua perhitungan menggunakan **integer**.
